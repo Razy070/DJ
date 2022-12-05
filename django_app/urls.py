@@ -1,15 +1,9 @@
 from django.contrib import admin
 from django.urls import path
+# from .views import index
 from django_app import views
-from django.conf import settings
-from django.conf.urls.static import static
-
+# from .views import post
 
 urlpatterns = [
-    path('', views.home, name=''),
-    path('my_api_one/<int:post_id>/', views.my_api_one),
-    path('my_api/', views.my_api),
+    path('', views.index, name=''),
 ]
-
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
