@@ -1,0 +1,2 @@
+[console_scripts]
+pg_activity = pgactivity.cli:main

@@ -1,0 +1,34 @@
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="{% url 'django_twitter_app:home' %}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li class="custom-hover"><a href="{% url 'django_twitter_app:home' %}" class="nav-link px-2 text-secondary">Домашняя</a></li>
+          <li class="custom-hover"><a href="{% url 'django_twitter_app:post_list' %}" class="nav-link px-2 text-white">Все посты</a></li>
+          <li class="custom-hover"><a href="#" class="nav-link px-2 text-white">Лучшие посты<i class="fa-solid fa-list-ol text-warning p-2"></i></a></li>
+          <li class="custom-hover"><a href="{% url 'django_twitter_app:post_create' %}" class="nav-link px-2 text-white">
+              Добавить пост
+              <i class="fa-solid fa-plus text-success p-2"></i>
+          </a></li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'django_twitter_app:logout' %}" type="button" class="btn btn-outline-danger me-2">Выйти ({{ user.username }})</a>
+            {% else %}
+                <a href="{% url 'django_twitter_app:login' %}" type="button" class="btn btn-outline-primary me-2">Войти (аноним)</a>
+            {% endif %}
+
+          <a href="{% url 'django_twitter_app:register' %}" type="button" class="btn btn-warning">Зарегистрироваться</a>
+        </div>
+      </div>
+    </div>
+  </header>

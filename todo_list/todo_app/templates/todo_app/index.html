@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<!--index.html-->
+
+<h3>All my lists</h3>
+
+<ul>
+
+    <li>
+
+    </li>
+    <div
+            role="button"
+            onclick="location.href='{% url 'list-add' %}'">
+            {{ todolist.title }}
+    </div>
+
+    <h4>You have no lists!</h4>
+
+    <p>
+    <input
+        value="Add a new list"
+        type="button"
+        onclick="location.href='{% url 'list-add' %}'"/>
+</p>
+
+</ul>
+<p>
+    <input
+        value="Add a new list"
+        type="button"
+        onclick="location.href='{% url 'list-add' %}'"/>
+</p>
+
+{% endblock %}
+
