@@ -1,4 +1,3 @@
-
 from typing import List
 from fastapi import FastAPI, status, HTTPException, Depends
 from database import Base, engine, SessionLocal
@@ -6,6 +5,7 @@ from flask import app
 from sqlalchemy.orm import Session
 import models
 import schemas
+
 
 @app.get("/")
 def root():
@@ -41,7 +41,6 @@ def read_todo(id: int, session: Session = Depends(get_session)):
 def update_todo(id: int, task: str, session: Session = Depends(get_session)):
     # Fetch todo record using id from the table
     todo_obj = session.query(models.ToDo).get(id)
-
 
     if todo_obj:
         todo_obj.task = task
